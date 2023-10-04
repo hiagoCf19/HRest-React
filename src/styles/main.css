@@ -1,0 +1,77 @@
+  @font-face {
+    font-family: 'PoppinsMedium';
+    src: url('../fonts/Poppins-Medium.otf');
+  }
+
+  @font-face {
+    font-family: 'PoppinsRegular';
+    src: url('../fonts/Poppins-Regular.otf');
+  }
+
+
+
+  body {
+    font-family: 'PoppinsRegular', 'Rubik'
+  }
+
+  .medium {
+    font-family: 'PoppinsMedium'
+
+  }
+
+
+  .parts {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .linha {
+    content: '';
+  }
+
+  .scroll::-webkit-scrollbar {
+
+    width: 5px;
+    border-radius: 12px;
+
+  }
+
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: #ffbf00;
+    border-radius: 12px;
+
+
+  }
+
+  @keyframes fadeOutUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+
+
+
+  .fade-out-up {
+    animation: fadeOutUp 3s ease forwards;
+  }
+
+  .fade-out-up-two {
+    animation: fadeOutUp 1s ease forwards;
+  }
+
+
+
+  .backCbol {
+    background-image: url('/src/assets/bg-icons-1.png');
+  }
+
+  .primaria {
+    background-color: #9EB384;
+  }
