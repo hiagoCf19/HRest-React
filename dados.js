@@ -14,7 +14,7 @@ var MENU = {
             "img": "public/assets/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
             "name": "Kings BBQ",
             "dsc": "Carolina BBQ Oink Sampler",
-            "price": 89.99
+            "price": 89.87
         },
         {
             "id": "texas-monthlys-1-bbq-brisket",
