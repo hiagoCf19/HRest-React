@@ -20,8 +20,8 @@ const Open = () => {
     <>
       <section className="bg-[#e1dada7c] w-full h-full fixed flex justify-center items-center " >
         <div className=" bg-colorWhite p-8 sm:p-0 min-h-[80%] shadow-2xl rounded-xl flex overflow-x-hidden ">
-          {/* PARTE DO BANNER */}
-          <div className="flex-1 bg-colorPrimary  p-2 rounded-l-xl hidden sm:block sm:w-[600px] ">1</div>
+
+
           {/* PARTE DOS DADOS */}
           <div
             className="flex-1 flex justify-center sm:mx-[100px] my-32 w-max">
