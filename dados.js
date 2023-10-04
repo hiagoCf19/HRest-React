@@ -53,7 +53,7 @@ var MENU = {
         },
         {
             "id": "006-kings-meat-lovers-special",
-            "img": "public/assets/cardapio/churrasco/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
+            "img": "public/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
             "name": "Kings BBQ",
             "dsc": "BBQ Meat Lovers Special for 10",
             "price": 139.98
