@@ -22,10 +22,7 @@ export default {
 
 
       },
-      backgroundImage: {
-        'cbol': "url('/src/assets/bg-icons-1.png')",
-        'rosc': "url('/src/assets/bg-icons-2.png')",
-      }
+
     },
   },
   plugins: [],

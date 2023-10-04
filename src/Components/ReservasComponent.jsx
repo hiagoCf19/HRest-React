@@ -29,7 +29,7 @@ const ReservasComponent = () => {
           </div>
           {/*   IMAGEM DA RESERVA */}
           <div className="parts justify-center items-center hidden sm:block">
-            <img src="src/assets/icone-reserva.svg" width={450} className="z-[1]" />
+            <img src="public/assets/icone-reserva.svg" width={450} className="z-[1]" />
           </div>
         </div>
       </section>

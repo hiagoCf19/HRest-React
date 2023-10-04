@@ -10,18 +10,18 @@ const FeedbackComponent = () => {
   const clientes = [
     {
       nome: 'Diego Generio',
-      foto: 'src/assets/diego.jpg',
+      foto: 'public/assets/diego.jpg',
       feedback: 'Muito bom, recomendo demais! Comida muito bem feita pelo chefe, atendimento dentro dos parâmetros e boa comunicação com o cliente.',
     },
     {
       nome: 'Ana Generica',
-      foto: 'src/assets/ana.jpg',
+      foto: 'public/assets/ana.jpg',
       feedback: 'Um jantar perfeito do começo ao fim.Comida, experiência, serviço... foi tão maravilhoso que fomos dois dias seguidos - fato inédito para mim em uma viagem.'
 
     },
     {
       nome: 'Joao Generico',
-      foto: 'src/assets/joao.jpg',
+      foto: 'public/assets/joao.jpg',
       feedback: 'A comida estava excelente e o serviço gentil nos surpreendeu! Dica: reserve umas 3 horas para ter uma experiência incrível.'
     }
 
@@ -62,7 +62,7 @@ const FeedbackComponent = () => {
             <div className="sm:flex-1 relative p-[10px] hidden sm:block" id='filho1'>
 
 
-              <img src="src/assets/pizzaBnr.svg" width={570} />
+              <img src="public/assets/pizzaBnr.svg" width={570} />
 
 
             </div>
