@@ -56,7 +56,7 @@ const Open = () => {
 
                   />
                 </div>
-                {nome === '' && tentativa >= 1 ? <span className=" text-colorRed ml-8 sm:ml-0">Insira um nome para continuar</span> : null}
+                {nome === '' && tentativa >= 1 ? <span className=" text-colorRed ml-8 sm:ml-9">Insira um nome para continuar</span> : null}
 
 
               </label>
