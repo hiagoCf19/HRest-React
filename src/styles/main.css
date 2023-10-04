@@ -56,22 +56,10 @@
     }
   }
 
-
-
   .fade-out-up {
     animation: fadeOutUp 3s ease forwards;
   }
 
   .fade-out-up-two {
     animation: fadeOutUp 1s ease forwards;
-  }
-
-
-
-  .backCbol {
-    background-image: url('/src/assets/bg-icons-1.png');
-  }
-
-  .primaria {
-    background-color: #9EB384;
   }
