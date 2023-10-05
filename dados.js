@@ -11,7 +11,7 @@ var MENU = {
         },
         {
             "id": "005-kings-carolina-oink-sampler",
-            "img": "public/assets/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
+            "img": "assets/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
             "name": "Kings BBQ",
             "dsc": "Carolina BBQ Oink Sampler",
             "price": 89.87
