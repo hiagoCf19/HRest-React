@@ -7,7 +7,7 @@ import 'animate.css'
 const Foods = ({ Food, countFood, setCountFood, inside, outside, RenderizaQuantidade, adicionar, subtrair, adicionarItemAoCarrinho, MensagemDeAdicao, MouseInside, tirar }) => {
 
   return (
-    <div className={`flex flex-col justify-center flex-wrap sm:flex-row box-border mt-12 sm:max-h-[680px] gap-6 scale-[1.0] sm:mx-[200px] sm:pb-2 animate__animated animate__fadeIn ${tirar === null ? 'overflow-hidden' : null} `}
+    <div className={`flex flex-col justify-center flex-wrap sm:flex-row box-border mt-12 sm:max-h-[680px] gap-6 scale-[1.0] sm:mx-[200px] sm:pb-2 animate__animated animate__fadeIn notranslate ${tirar === null ? 'overflow-hidden' : null} `}
     >
       {Food.map((burg, i) => (
         <div className={`sm:w-[255px] w-min-max sm:h-[320px] h-[100px] bg-[#F5F5F5] box-border flex sm:flex-col items-center sm:justify-center rounded-[12px] gap-[10px] hover:bg-colorSecondary shadow-xl`}
@@ -77,7 +77,7 @@ const Foods = ({ Food, countFood, setCountFood, inside, outside, RenderizaQuanti
 
               </div>
             </div>)
-            : (<div className="sm:flex justify-center flex-col items-center medium text-color21 text-[22px]">
+            : (<div className="sm:flex justify-center flex-col items-center medium text-color21 text-[22px] notranslate">
               <h2 className="medium sm:text-center">{burg.name} </h2>
               <h3 className=" text-colorPrimary">R${burg.price}</h3>
             </div>)}

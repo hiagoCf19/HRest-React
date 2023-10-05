@@ -11,7 +11,7 @@ const Principal = () => {
   return (
     <>
 
-      <div className="flex flex-col gap-[70px] sm:gap-[120px] bg-colorBackground box-content overflow-x-hidden sm:overflow-y-hidden animate__animated animate__fadeIn">
+      <div className="flex flex-col gap-[70px] sm:gap-[120px] bg-colorBackground box-content overflow-x-hidden sm:overflow-y-hidden animate__animated animate__fadeIn notranslate">
         <HeaderComponent />
         <BannerComponent />
         <ServiceComponent />
