@@ -266,11 +266,13 @@ const CardapioComponent = () => {
 
         </div>
         {/* BOTÃO VER MAIS */}
-        <div className="flex justify-center p-6 hidden sm:block">
-          <button className={`bg-[#f5f5f5] p-2 rounded-xl scale-110 hover:shadow-xl hover:bg-colorPrimary hover:text-colorText ${tirar === null ? null : 'hidden'} `}
-            onClick={() => setTirar('removido')}
-          >Ver Mais
-          </button>
+        <div className="hidden sm:block">
+          <div className="flex justify-center p-6 ">
+            <button className={`bg-[#f5f5f5] p-2 rounded-xl scale-110 hover:shadow-xl hover:bg-colorPrimary hover:text-colorText ${tirar === null ? null : 'hidden'} `}
+              onClick={() => setTirar('removido')}
+            >Ver Mais
+            </button>
+          </div>
         </div>
       </section >
 
