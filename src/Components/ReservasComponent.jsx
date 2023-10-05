@@ -14,7 +14,7 @@ const ReservasComponent = () => {
         <div className=" flex bg-colorSecondary rounded-[40px] sm:w-[1100px] sm:h-[500px] sm:items-center">
           <div className=" sm:flex-1 justify-center items-center">
             <div className="flex flex-col gap-5 p-10 items-center">
-              <Title descricao={'Cardápio'} title={'Quer fazer uma reserva ?'} />
+              <Title descricao={'Reserva'} title={'Quer fazer uma reserva ?'} />
               <p className=" text-md text-color21">
                 Mande uma mensagem clicando no botão abaixo. Reserve sua data e horário para conhecer nosso estabelecimento de forma simples
                 e rápida.
