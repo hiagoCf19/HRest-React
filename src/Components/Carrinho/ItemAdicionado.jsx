@@ -42,7 +42,7 @@ const ItemAdicionado = () => {
   return (
 
     <>
-      <div className="sm:mx-[200px] w-min-max h-[400px] p-8 sm:p-0">
+      <div className="sm:mx-[200px] w-min-max h-[350px] p-8 sm:p-0">
         {/* SE O CARRINHO ESTIVER VAZIO */}
         {carrinho.length === 0 ?
           <div className="flex justify-center flex-col h-[300px] items-center text-colorTextOut medium text-2xl gap-4">

@@ -63,3 +63,7 @@
   .fade-out-up-two {
     animation: fadeOutUp 1s ease forwards;
   }
+
+  .primaria {
+    background-color: #CEDEBD;
+  }

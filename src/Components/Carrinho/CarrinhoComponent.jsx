@@ -71,11 +71,11 @@ const CarrinhoComponent = () => {
   return (
     <div id="shoppingBAG" className="animate__animated animate__fadeIn ">
 
-      <div className={`fixed top-0 bottom-0 left-0 right-0 sm:p-[50px] bg-colorBackground z-[9990] overflow-x-hidden overflow-y-hidden overscroll-y-auto flex flex-col`}
+      <div className={`fixed top-0 bottom-0 left-0 right-0 sm:p-[50px] bg-colorBackground z-[9990] overflow-x-hidden overflow-y-auto overscroll-y-auto flex flex-col`}
         id='carrinho'>
         {/* HEADER DO CARRINHO */}
         <div className=" sm:pb-5" id='Headercar'>
-          <div className="sm:mx-[200px] mx-12 my-8">
+          <div className="sm:mx-[200px] mx-12 my-6">
 
             <Link className=" medium float-right bg-colorWhite shadow-xl p-2 rounded-xl hover:bg-colorPrimary"
               to="/home"
