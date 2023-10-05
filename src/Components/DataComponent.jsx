@@ -46,7 +46,7 @@ const Open = () => {
                   </p>
 
                   <input
-                    className=" italic bg-transparent outline-none w-[230px] "
+                    className=" italic bg-transparent outline-none w-[200px] "
                     type="text"
                     name="txtname"
                     id="name"
