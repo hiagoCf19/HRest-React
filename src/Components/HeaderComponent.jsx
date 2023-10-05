@@ -28,7 +28,7 @@ const HeaderComponent = () => {
           <nav className="flex sm:gap-4 items-center flex-col sm:flex-row gap-8">
             {/* LOGO E MENU MOBILE   */}
             <div className="flex items-center gap-28">
-              <img src="public/assets/definitivo.svg" width={'160'} className="mr-15 ml-[-25px]" />
+              <img src="assets/definitivo.svg" width={'160'} className="mr-15 ml-[-25px]" />
               <div
                 className="sm:hidden"
                 onClick={() => escondeMenu === 'escondido' ? setEscondeMenu('visivel') : setEscondeMenu('escondido')}>

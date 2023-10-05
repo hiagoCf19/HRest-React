@@ -26,7 +26,7 @@ const FooterComponent = () => {
       <footer>
         <div className="flex justify-center items-center sm:gap-[150px] gap- flex-col sm:flex-row bg-colorSecondary">
           <div className=" ">
-            <img src="public/assets/definitivo.svg" className="w-[130px] h-[100px]" />
+            <img src="assets/definitivo.svg" className="w-[130px] h-[100px]" />
           </div>
           <div className="w-[400px] flex justify-center medium text-[18px] text-color21 hover:text-colorPrimary cursor-pointer py-4">
             <a href="https://api.whatsapp.com/send/?phone=5531982033698&text&type=phone_number&app_absent=0">

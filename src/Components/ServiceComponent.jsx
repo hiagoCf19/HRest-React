@@ -18,7 +18,7 @@ const ServiceComponent = () => {
             <div className="parts w-[350px] px-5 flex flex-col justify-center">
               <div className=" h-[150px] mx-auto mb-[15px] flex justify-center items-center">
                 <img
-                  src="public/assets/icone-pedido.svg"
+                  src="assets/icone-pedido.svg"
                   alt="pedido"
                   width={150}
                 />
@@ -39,7 +39,7 @@ const ServiceComponent = () => {
               <div className="parts w-[350px] px-5 flex flex-col justify-center">
                 <div className=" h-[150px] mx-auto mb-[15px] flex justify-center items-center">
                   <img
-                    src="public/assets/icone-delivery.svg" alt="pedido"
+                    src="assets/icone-delivery.svg" alt="pedido"
                     width={250}
                   />
                 </div>
@@ -60,7 +60,7 @@ const ServiceComponent = () => {
               <div className="parts w-[350px] px-5 flex flex-col justify-center">
                 <div className=" h-[150px] mx-auto mb-[15px] flex justify-center items-center">
                   <img
-                    src="public/assets/icone-qualidade.svg" alt="pedido"
+                    src="assets/icone-qualidade.svg" alt="pedido"
                     width={200}
                   />
                 </div>
