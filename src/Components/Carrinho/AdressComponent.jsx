@@ -10,10 +10,13 @@ const AdressInfoComponent = () => {
   const [cepFinal, setCepFinal] = useState(0);
   const [adressNumber, setAdressNumber] = useState('');
   const [adressComplemento, setAdressComplemento] = useState('');
+  const [userEnteredCEP, setUserEnteredCEP] = useState('');
+
   const [adressRua, setAdressRua] = useState('');
   const buscarCEP = (ev) => {
     const value = ev.target.value;
     const cep = value?.replace(/\D/g, '')
+    setUserEnteredCEP(cep);
     if (cep?.length !== 8) {
 
       return;
@@ -34,7 +37,7 @@ const AdressInfoComponent = () => {
 
     setEnderecoDeEntrega(
       {
-        rua: adressRua,
+        rua: adressRua || '',
         numero: adressNumber || false,
         bairro: cepFinal.bairro || '',
         complemento: adressComplemento || '',
@@ -70,7 +73,7 @@ const AdressInfoComponent = () => {
       <div className='flex flex-col items-center sm:gap-8 sm:py-2 '>
         <div className='sm:flex' >
 
-          <FormAd especificacao={'Endereço:'} value={adressRua} readOnly />
+          <FormAd especificacao={'Endereço:'} value={adressRua} onChange={(newValue) => setAdressRua(newValue)} />
 
           <div id='numero' className='mr-[50px]' >
             <div className='w-auto flex flex-row' >
