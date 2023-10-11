@@ -72,7 +72,7 @@ const ItemAdicionado = () => {
                     <b>{item.nome}</b>
                   </p>
                   <p className="text-colorPrimary sm:text-2xl mb-0">
-                    <b>{`${item.precoUnitario}`}</b>
+                    <b>{`R$ ${item.precoUnitario}`}</b>
                   </p>
                 </div>
                 <div className="flex w-min py-2 ">

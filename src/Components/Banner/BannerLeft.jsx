@@ -24,7 +24,7 @@ const BannerLeft = () => {
         </b>
 
         <p className="my-3.5 text-[20px]  text-base text-colorText text-justify">
-          Lorem ipsum dolor sit amet, adipiscing elit. Fusce ac lacinia ex. Nullam just euismod  sed neque commodo.
+          Desfrute de uma experiência gastronômica inovadora e personalizada em nosso restaurante com menu digital. Satisfaça seus desejos culinários com um toque de tecnologia.
         </p>
       </div>
       {/*BOTÕES DO BANNER */}
