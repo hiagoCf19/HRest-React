@@ -7,7 +7,7 @@ import {
 } from "react";
 
 // Tipo para os dados do usuário
-type UserData = {
+export type UserData = {
   userName: string;
   userKey: string;
 };

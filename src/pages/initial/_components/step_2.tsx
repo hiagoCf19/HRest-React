@@ -1,3 +1,4 @@
+import { UserData } from "@/Context/user-context";
 import { useEffect, useState } from "react";
 import { ArrowRight, Beef } from "lucide-react";
 import { motion } from "framer-motion";
@@ -7,28 +8,32 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { UserData } from "@/Context/user-context";
-
-interface FirstStepProps {
-  setUserData: React.Dispatch<React.SetStateAction<UserData>>;
-  onNextStep: () => void;
-}
-
-export default function FirstStep({ setUserData, onNextStep }: FirstStepProps) {
-  const [nome, setNome] = useState("");
+type SecondStepProps = {
+  setUserData: React.Dispatch<React.SetStateAction<UserData>>; // Tipagem de setUserData
+  onSubmit: () => void; // Função de envio final
+};
+const SecondStep = ({ setUserData, onSubmit }: SecondStepProps) => {
+  const [key, setKey] = useState("");
 
   useEffect(() => {
-    if (nome.trim()) {
+    if (key.trim()) {
       setUserData((prevData) => ({
         ...prevData,
-        userName: nome,
+        userKey: key,
       }));
     }
-  }, [nome, setUserData]);
+  }, [key]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background to-background/50 p-4">
@@ -45,39 +50,51 @@ export default function FirstStep({ setUserData, onNextStep }: FirstStepProps) {
 
         <CardContent className="p-6 space-y-6">
           <div className="space-y-2 text-center">
-            <h2 className="text-2xl font-bold tracking-tight">Vamos começar</h2>
+            <h2 className="text-2xl font-bold tracking-tight">Está quase lá</h2>
             <p className="text-muted-foreground">
-              Insira seu nome para que possamos prosseguir
+              Escolha uma chave para prosseguir
             </p>
+            <span className="text-xs text-muted-foreground">
+              Esta chave será fornecida ao entregador para confirmar seu pedido
+            </span>
           </div>
 
           <Separator className="bg-gray-200" />
 
           <div className="space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 flex flex-col justify-center items-center">
               <Label
-                htmlFor="name"
+                htmlFor="key"
                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Seu nome
+                Chave
               </Label>
-              <Input
-                id="name"
-                type="text"
-                placeholder="Digite seu nome"
-                className="w-full"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
-              />
+              <InputOTP
+                value={key}
+                onChange={(value) => setKey(value)}
+                maxLength={6}
+              >
+                <InputOTPGroup>
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSlot index={2} />
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                  <InputOTPSlot index={3} />
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                </InputOTPGroup>
+              </InputOTP>
             </div>
           </div>
         </CardContent>
 
         <CardFooter>
           <Button
-            onClick={onNextStep}
+            onClick={onSubmit}
             className="w-full bg-orange-600 hover:bg-orange-700 text-white items-center"
-            disabled={!nome.trim()}
+            disabled={!key.trim()}
           >
             <span>Prosseguir</span>
             <motion.span
@@ -91,4 +108,6 @@ export default function FirstStep({ setUserData, onNextStep }: FirstStepProps) {
       </Card>
     </div>
   );
-}
+};
+
+export default SecondStep;
