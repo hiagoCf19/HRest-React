@@ -1,7 +1,6 @@
 
 import BannerRight from "./BannerRight"
 import BannerLeft from "./BannerLeft"
-import '../../styles/main.css'
 const BannerComponent = () => {
 
   return (

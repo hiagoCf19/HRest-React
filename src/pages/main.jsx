@@ -6,7 +6,7 @@ import FeedbackComponent from "../Components/FeedBackComponent";
 import ReservasComponent from "../Components/ReservasComponent";
 import FooterComponent from "../Components/FooterComponent";
 
-const Principal = () => {
+const Main = () => {
   return (
     <>
       <div className="flex flex-col gap-[70px] sm:gap-[120px] bg-colorBackground box-content overflow-x-hidden sm:overflow-y-hidden animate__animated animate__fadeIn notranslate">
@@ -22,4 +22,4 @@ const Principal = () => {
     </>
   );
 };
-export default Principal;
+export default Main;

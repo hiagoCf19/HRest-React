@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-key */
 
 import MENU from "../../../dados";
-import "../../styles/main.css";
 import { useContext, useRef, useState } from "react";
 import CarContext from "../../Context/CarrinhoContext";
 import Foods from "./FoodsComponent";
