@@ -3,7 +3,11 @@ module.exports = {
     darkMode: ["class"],
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
-    extend: {
+		extend: {
+			 fontFamily: {
+        hind: ['"Hind Mysuru"', 'sans-serif'], // Adiciona a fonte Hind Mysuru
+        inter: ['"Inter"', 'sans-serif'], // Adiciona a fonte Inter
+      },
        keyframes: {
         "caret-blink": {
           "0%,70%,100%": { opacity: "1" },
