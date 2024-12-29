@@ -37,7 +37,7 @@ const Header = () => {
         ))}
       </div>
       <div className="flex-1 flex  justify-center">
-        <img src="assets/definitivo.svg" width={"160"} />
+        <img src="assets/logo.png" width={"160"} />
       </div>
       <div className="flex-1 flex justify-end">
         <Link to="/meu-carrinho">

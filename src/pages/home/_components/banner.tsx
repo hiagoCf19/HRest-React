@@ -8,7 +8,7 @@ const Banner = () => {
         <div className="w-full h-20" />
         <div className="h-[80vh] w-1/2 flex items-center mx-20 ">
           <div className="text-secondary/80">
-            <span className="uppercase font-medium">Hrest food</span>
+            <span className="uppercase font-medium">Best Burger</span>
             <p className="text-[50px] font-bold uppercase">
               <strong className="text-primary">Hambúrgueres</strong> artesanais
               que <span className="text-primary">conquistam o paladar</span>
