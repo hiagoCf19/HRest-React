@@ -7,21 +7,23 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { AdrsProvider } from "./Context/AdressContext"
 import { UserProvider } from "./Context/user-context";
 import Initial from "./pages/initial/page";
+import Home from "./pages/home/page";
+import { CarProvider } from "./Context/cart-context";
 function RoutesApp() {
   return (
     <UserProvider>
-      {/* // <CarProvider> */}
-      <BrowserRouter>
-        {/* <AdrsProvider> */}
-        <Routes>
-          <Route path="/" element={<Initial />} />
-          {/* <Route path='/main' element={<Main />} />
-            <Route path='/meu-carrinho' element={<CarrinhoComponent />} />
+      <CarProvider>
+        <BrowserRouter>
+          {/* <AdrsProvider> */}
+          <Routes>
+            <Route path="/" element={<Initial />} />
+            <Route path="/home" element={<Home />} />
+            {/*    <Route path='/meu-carrinho' element={<CarrinhoComponent />} />
             <Route path='*' element={<RotaNula />} /> */}
-        </Routes>
-        {/* </AdrsProvider> */}
-      </BrowserRouter>
-      {/* </CarProvider> */}
+          </Routes>
+          {/* </AdrsProvider> */}
+        </BrowserRouter>
+      </CarProvider>
     </UserProvider>
   );
 }

@@ -2,7 +2,7 @@
 
 import MENU from "../../../dados";
 import { useContext, useRef, useState } from "react";
-import CarContext from "../../Context/CarrinhoContext";
+import CarContext from "../../Context/cart-context";
 import Foods from "./FoodsComponent";
 import { PiHamburgerFill } from "react-icons/pi";
 import { FaPizzaSlice } from "react-icons/fa6";
