@@ -1,5 +1,7 @@
+import Services from "@/pages/home/_components/services";
 import Banner from "./_components/banner";
 import Header from "./_components/header";
+import CardapioComponent from "@/Components/Cardapio/cardapio";
 
 const Home = () => {
   return (
@@ -7,9 +9,9 @@ const Home = () => {
       <Header />
 
       <Banner />
-      {/*<ServiceComponent />
-        <CardapioComponent />
-        <FeedbackComponent />
+      <Services />
+      <CardapioComponent />
+      {/*  <FeedbackComponent />
         <ReservasComponent />
         <FooterComponent /> */}
     </div>

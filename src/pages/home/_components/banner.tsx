@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 const Banner = () => {
   return (
     <>
@@ -7,7 +9,7 @@ const Banner = () => {
       >
         <div className="w-full h-20" />
         <div className="h-[80vh] w-1/2 flex items-center mx-20 ">
-          <div className="text-secondary/80">
+          <div className="text-secondary/80 flex flex-col">
             <span className="uppercase font-medium">Best Burger</span>
             <p className="text-[50px] font-bold uppercase">
               <strong className="text-primary">Hambúrgueres</strong> artesanais
@@ -20,7 +22,9 @@ const Banner = () => {
               você a melhor experiência gastronômica, direto no conforto da sua
               casa. Escolha o seu favorito e aproveite!
             </span>
-            <span></span>
+            <div className="mt-4">
+              <Button>Ver Cardápio</Button>
+            </div>
           </div>
         </div>
       </div>

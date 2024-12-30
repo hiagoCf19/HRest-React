@@ -1,24 +1,38 @@
 /* eslint-disable react/jsx-key */
 
 import MENU from "../../../dados";
-import { useContext, useRef, useState } from "react";
-import CarContext from "../../Context/cart-context";
-import Foods from "./FoodsComponent";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { GiCakeSlice, GiFullPizza, GiSteak } from "react-icons/gi";
+import Foods from "./foods";
 import { PiHamburgerFill } from "react-icons/pi";
 import { FaPizzaSlice } from "react-icons/fa6";
+import { GiBarbecue } from "react-icons/gi";
+
 import {
   FaDrumstickBite,
   FaBacon,
   FaGlassMartiniAlt,
   FaIceCream,
+  FaHamburger,
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
-import Title from "../Title";
 ("feather-icons-react/build/IconComponents");
-import { BiChevronsRight, BiChevronsLeft } from "react-icons/bi";
+import {
+  BiChevronsRight,
+  BiChevronsLeft,
+  BiSolidPlaneTakeOff,
+  BiSolidDrink,
+} from "react-icons/bi";
+import { useCart } from "@/hooks/useCart";
+import Title from "@/components/title";
+import MenuCard from "@/components/cardapio/card";
+import { Pizza, PizzaIcon } from "lucide-react";
 
 const CardapioComponent = () => {
-  const { carrinho, setCarrinho } = useContext(CarContext);
+  const { carrinho, setCarrinho } = useCart();
+  const [tirar, setTirar] = useState<string | null>(null);
+  const [MouseInside, setMouseInside] = useState(null);
+  const [botaoAtivo, setBotaoAtivo] = useState(0);
 
   const titulosSpn = [
     "Burgers",
@@ -37,9 +51,6 @@ const CardapioComponent = () => {
     <FaIceCream size={20} />,
   ];
 
-  const [tirar, setTirar] = useState(null);
-  const [MouseInside, setMouseInside] = useState(null);
-  const [botaoAtivo, setBotaoAtivo] = useState(0);
   const scrollContainerRef = useRef(null);
   const burgers = MENU.burgers;
   const pizzas = MENU.pizzas;
@@ -61,13 +72,19 @@ const CardapioComponent = () => {
   const [countSobremesa, setCountSobremesa] = useState(
     Array(sobremesa.length).fill(0)
   );
-  const inside = (i) => {
+
+  const inside = (i: any) => {
     setMouseInside(i);
   };
   const outside = () => {
     setMouseInside(null);
   };
-  const adicionarItemAoCarrinho = (quantidade, nome, precoUnitario, image) => {
+  const adicionarItemAoCarrinho = (
+    quantidade: number,
+    nome: string,
+    precoUnitario: number,
+    image: string
+  ) => {
     // Verificar se o item já existe no carrinho, o item vai existir quando item.nome for igual ao nome
     const ItemExisteQuando = carrinho.find((item) => item.nome === nome);
 
@@ -102,19 +119,27 @@ const CardapioComponent = () => {
       setCarrinho([...carrinho, itemCarrinho]);
     }
   };
-  const adicionar = (itemarray, i, setItem) => {
+  const adicionar = (
+    itemarray: number[],
+    i: number,
+    setItem: Dispatch<SetStateAction<any[]>>
+  ) => {
     const novosCounts = [...itemarray];
     novosCounts[i] = novosCounts[i] + 1;
     setItem(novosCounts);
   };
-  const subtrair = (itemarray, i, setItem) => {
+  const subtrair = (
+    itemarray: number[],
+    i: number,
+    setItem: Dispatch<SetStateAction<any[]>>
+  ) => {
     if (itemarray[i] > 0) {
       const novosCounts = [...itemarray];
       novosCounts[i] = novosCounts[i] - 1;
       setItem(novosCounts);
     }
   };
-  const RenderizaQuantidade = (itemarray, i) => {
+  const RenderizaQuantidade = (itemarray: number[], i: number) => {
     return itemarray[i];
   };
   const [adicionou, setAdicionou] = useState(false);
@@ -134,11 +159,7 @@ const CardapioComponent = () => {
           id="titulo-da-section"
           className="flex justify-center mb-10 text-center sm:text-start"
         >
-          <Title
-            descricao={"Cardápio"}
-            title={"Escolha sua comida favorita"}
-            className="flex justify-center bg-"
-          />
+          <Title descricao={"Cardápio"} title={"Escolha sua comida favorita"} />
         </div>
         {/*BARRA DE SELEÇÃO DE ITENS */}
 
@@ -146,7 +167,7 @@ const CardapioComponent = () => {
           id="seletor-de-itens"
           className=" flex justify-between items-center gap-2 sm:justify-center "
         >
-          <button
+          {/* <button
             className="p-1 rounded-full bg-colorSecondary outline-none sm:hidden"
             onClick={() =>
               scrollContainerRef.current
@@ -158,7 +179,7 @@ const CardapioComponent = () => {
             }
           >
             <BiChevronsLeft color="FFF" size={20} />
-          </button>
+          </button> */}
 
           <div
             className="flex min-wmax sm:w-auto overflow-x-scroll sm:overflow-hidden gap-4 p-2 "
@@ -179,8 +200,8 @@ const CardapioComponent = () => {
               </button>
             ))}
           </div>
-          <button
-            className="p-1 rounded-full bg-colorSecondary outline-none sm:hidden"
+          {/* <button
+            className="p-1 rounded-full bg-primary outline-none sm:hidden"
             onClick={() =>
               scrollContainerRef.current
                 ? `${scrollContainerRef.current.scrollBy({
@@ -190,8 +211,8 @@ const CardapioComponent = () => {
                 : null
             }
           >
-            <BiChevronsRight color="FFF" size={20} />
-          </button>
+            <BiChevronsRight color="FFF" size={20} />a
+          </button> */}
         </div>
         {/* ITENS DO CARDAPIO */}
         <div
@@ -211,6 +232,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<FaHamburger size={40} />}
             />
           ) : null}
           {botaoAtivo === 1 ? (
@@ -227,6 +249,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<GiFullPizza size={40} />}
             />
           ) : null}
           {botaoAtivo === 2 ? (
@@ -243,6 +266,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<GiBarbecue size={40} />}
             />
           ) : null}
           {botaoAtivo === 3 ? (
@@ -259,6 +283,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<GiSteak size={40} />}
             />
           ) : null}
           {botaoAtivo === 4 ? (
@@ -275,6 +300,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<BiSolidDrink size={40} />}
             />
           ) : null}
           {botaoAtivo === 5 ? (
@@ -291,6 +317,7 @@ const CardapioComponent = () => {
               outside={outside}
               MouseInside={MouseInside}
               tirar={tirar}
+              icon={<GiCakeSlice size={40} />}
             />
           ) : null}
         </div>

@@ -1,0 +1,727 @@
+export type MenuItem = {
+  id: string;
+  img: string;
+  name: string;
+  dsc: string;
+  price: number;
+  icon?: string;
+  composicao: string;
+  serve: number;
+};
+
+// Define o tipo do menu, que contém seções, cada uma sendo um array de itens
+export type Menu = {
+  [section: string]: MenuItem[];
+};
+var MENU: Menu = {
+  churrasco: [
+    {
+      id: "ribs-brisket-and-burnt-ends",
+      img: "assets/cardapio/churrasco/joes-kc-ribs-brisket-and-burnt-ends.6710e994980e485e6441b794717ad6fb.jpg",
+      name: "Joe's KC BBQ",
+      dsc: "Uma combinação irresistível de costelas, peito bovino e pedaços defumados de carne com molho barbecue.",
+      price: 95.99,
+      icon: "assets/drumstick-bite-solid.svg",
+      composicao:
+        "Costela de porco, peito bovino, pedaços defumados, molho barbecue, especiarias secas.",
+      serve: 3,
+    },
+    {
+      id: "005-kings-carolina-oink-sampler",
+      img: "assets/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
+      name: "Kings BBQ",
+      dsc: "Um sampler com carnes suínas desfiadas e linguiças defumadas ao estilo Carolina com molho especial.",
+      price: 89.87,
+      composicao:
+        "Carne de porco desfiada, linguiça defumada, molho Carolina, tempero à base de mostarda.",
+      serve: 2,
+    },
+    {
+      id: "texas-monthlys-1-bbq-brisket",
+      img: "assets/cardapio/churrasco/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.jpg",
+      name: "Snow's BBQ",
+      dsc: "O melhor peito bovino do Texas, defumado lentamente para um sabor inigualável.",
+      price: 119.69,
+      composicao:
+        "Peito bovino defumado lentamente, pimenta-do-reino, alho em pó, sal grosso.",
+      serve: 4,
+    },
+    {
+      id: "whole-brisket-texas-bbq-sauce",
+      img: "assets/cardapio/churrasco/whole-brisket-texas-barbecue-bbq-sauce.e07ee4818b20ed43d217bf67fedd41ce.jpg",
+      name: "Franklin Barbecue",
+      dsc: "Peito bovino inteiro com molho barbecue artesanal para os amantes de churrasco.",
+      price: 168.87,
+      composicao:
+        "Peito bovino inteiro, molho barbecue do Texas, fumaça de carvalho, especiarias.",
+      serve: 4,
+    },
+    {
+      id: "whole-texas-smoked-brisket",
+      img: "assets/cardapio/churrasco/whole-texas-smoked-brisket.a5558a25381e271408e197936e7985d8.jpg",
+      name: "Terry Black's BBQ",
+      dsc: "Peito bovino defumado ao estilo texano, temperado na medida certa.",
+      price: 129.95,
+      composicao:
+        "Peito bovino defumado, pimenta preta moída, alho seco, fumaça de lenha.",
+      serve: 3,
+    },
+    {
+      id: "mini-trinity-bbq-combo-brisket-ribs-and-links",
+      img: "assets/cardapio/churrasco/mini-trinity-bbq-combo-brisket-ribs-and-links.245582f593bf64b23b57dfca2be18cfd.jpg",
+      name: "Bludso's BBQ",
+      dsc: "Uma seleção perfeita de peito bovino, costelas e linguiças defumadas.",
+      price: 139.99,
+      composicao:
+        "Peito bovino, costela de porco, linguiça defumada, molho barbecue picante.",
+      serve: 4,
+    },
+    {
+      id: "235203-blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo",
+      img: "assets/cardapio/churrasco/blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo.a95a3e632ae324f719738a2a5c1dff6e.jpg",
+      name: "Blue Smoke",
+      dsc: "Costelas baby back suculentas com frango assado ao estilo barbecue.",
+      price: 77.89,
+      composicao:
+        "Costela baby back, frango marinado, molho defumado, mel, pimenta caiena.",
+      serve: 2,
+    },
+    {
+      id: "006-kings-meat-lovers-special",
+      img: "assets/cardapio/churrasco/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
+      name: "Kings BBQ",
+      dsc: "Uma festa para os amantes de carne com uma variedade incrível de sabores.",
+      price: 139.98,
+      composicao:
+        "Variedade de carnes defumadas, linguiças, costelas e peito bovino, molhos variados.",
+      serve: 4,
+    },
+    {
+      id: "the-big-ugly-bbq-dinner-for-6",
+      img: "assets/cardapio/churrasco/the-big-ugly-bbq-dinner-for-6.2dfae7818811adddce85cc1a910881a0.jpg",
+      name: "Ugly Drum",
+      dsc: "Um jantar completo com peito defumado, linguiça e costelas para compartilhar.",
+      price: 79.55,
+      composicao:
+        "Peito defumado, linguiça picante, costela de porco, salada de repolho, pão de milho.",
+      serve: 3,
+    },
+    {
+      id: "17796-mighty-quinns-bbq-sampler-pack",
+      img: "assets/cardapio/churrasco/mighty-quinns-bbq-sampler-pack.1bfe4a0665edc565756f5241bf25840e.jpg",
+      name: "Mighty Quinn's BBQ",
+      dsc: "Um sampler generoso com costelas, porco desfiado e linguiças ao estilo barbecue.",
+      price: 129.78,
+      composicao:
+        "Costela bovina, porco desfiado, linguiça defumada, molho barbecue doce.",
+      serve: 4,
+    },
+    {
+      id: "post-oak-smoked-half-brisket",
+      img: "assets/cardapio/churrasco/post-oak-smoked-usda-prime-half-brisket.6f17178dde7d806670bcc73ff11762b3.jpg",
+      name: "Southside Market",
+      dsc: "Peito bovino defumado ao ponto perfeito, temperado com especiarias suaves.",
+      price: 69.99,
+      composicao: "Peito bovino defumado, sal grosso, alho, pimenta branca.",
+      serve: 2,
+    },
+    {
+      id: "best-of-texas-bbq-combo-serves-14",
+      img: "assets/cardapio/churrasco/best-of-texas-bbq-combo-serves-14.7ae90266335e539c67e77fed14b43029.jpg",
+      name: "Snow's BBQ",
+      dsc: "Uma combinação dos melhores sabores do Texas para compartilhar com amigos.",
+      price: 119.67,
+      composicao:
+        "Costela bovina, peito bovino, carne de porco, molho especial, salada coleslaw.",
+      serve: 4,
+    },
+  ],
+  burgers: [
+    {
+      id: "the-gramercy-tavern-burger-4-pack",
+      img: "assets/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-15.jpg",
+      name: "Gramercy Tavern",
+      dsc: "O clássico hambúrguer Gramercy Tavern, uma combinação perfeita de carne suculenta e queijos derretidos.",
+      price: 39.99,
+      composicao:
+        "Carne de boi, queijo cheddar, alface, tomate, molho especial, pão de hambúrguer.",
+      serve: 1,
+    },
+    {
+      id: "shake-shack-shackburger-8-pack",
+      img: "assets/cardapio/burguers/shake-shack-shackburger-8-pack.973a5e26836ea86d7e86a327becea2b0.jpg",
+      name: "Shake Shack",
+      dsc: "O Shake Shack ShackBurger® é uma explosão de sabor com carne fresquinha, queijo derretido e molho especial.",
+      price: 37.99,
+      composicao:
+        "Carne de boi, queijo americano, alface crocante, tomate, molho Shack, pão de hambúrguer.",
+      serve: 1,
+    },
+    {
+      id: "gotts-cheeseburger-kit-for-4",
+      img: "assets/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg",
+      name: "Gott's Roadside",
+      dsc: "Kit completo para hambúrgueres com carne suculenta e queijos derretidos, perfeito para um almoço especial.",
+      price: 36.85,
+      composicao:
+        "Carne de boi, queijo cheddar, cebola caramelizada, alface, molho especial, pão brioche.",
+      serve: 1,
+    },
+    {
+      id: "le-big-matt-kit-for-6",
+      img: "assets/cardapio/burguers/le-big-matt-kit-for-6.1ddae6e382bb3218eeb0fd5247de115a.jpg",
+      name: "Emmy Squared",
+      dsc: "O Le Big Matt é um hambúrguer gourmet com carne de qualidade e sabores intensos, ideal para os amantes de hambúrgueres robustos.",
+      price: 39.29,
+      composicao:
+        "Carne de boi, queijo gruyère, alface, tomate, molho maionese-trufada, pão de brioche.",
+      serve: 1,
+    },
+    {
+      id: "shake-shack-shackburger-16-pack",
+      img: "assets/cardapio/burguers/shake-shack-shackburger-16-pack.316f8b09144db65931ea29e34869287a.jpg",
+      name: "Shake Shack",
+      dsc: "O ShackBurger® em versão XXL, com ingredientes frescos e sabor incrível, ideal para compartilhar com a família.",
+      price: 29.99,
+      composicao:
+        "Carne de boi, queijo cheddar, alface, tomate, molho Shack, pão de hambúrguer.",
+      serve: 1,
+    },
+    {
+      id: "21-usda-prime-burgers-pack-of-18-8oz-each",
+      img: "assets/cardapio/burguers/usda-prime-burgers-pack-of-18-8oz-each.274c67f15aa1c0b210dbf51801706670.jpg",
+      name: "Peter Steak House",
+      dsc: "Hambúrgueres primos USDA de 8oz cada, com sabor robusto e textura irresistível, ideais para grelhar.",
+      price: 36.99,
+      composicao:
+        "Carne USDA Prime, temperos especiais, sal grosso, pimenta preta.",
+      serve: 1,
+    },
+    {
+      id: "double-stack-burger-kit-for-4",
+      img: "assets/cardapio/burguers/handf-double-stack-burger-kit-for-4.4ee9f54b1d6087e9996335f07c13e5cd.jpg",
+      name: "Holeman & Finch",
+      dsc: "O Double Stack Burger é um hambúrguer duplo com carnes suculentas e ingredientes frescos.",
+      price: 49.99,
+      composicao:
+        "Carne de boi, queijo cheddar, cebola roxa, alface, ketchup, pão de hambúrguer.",
+      serve: 1,
+    },
+    {
+      id: "goldbelly-burger-bash-pack",
+      img: "assets/cardapio/burguers/the-burger-bash-package.bd9d12d031865940bbe5faf15f1a62f8.jpg",
+      name: "Pat LaFrieda Meats",
+      dsc: "Pack especial para o Burger Bash, com carnes de alta qualidade e ingredientes frescos.",
+      price: 79.99,
+      composicao:
+        "Carne de boi, queijo cheddar, bacon crocante, molho barbecue, pão de brioche.",
+      serve: 1,
+    },
+    {
+      id: "burger-au-poivre-kit-4-pack",
+      img: "assets/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg",
+      name: "Raoul's",
+      dsc: "Hambúrguer gourmet com molho au poivre, perfeito para quem busca um sabor sofisticado.",
+      price: 38.99,
+      composicao:
+        "Carne de boi, molho au poivre, queijo suíço, cebola caramelizada, pão brioche.",
+      serve: 1,
+    },
+    {
+      id: "goldbelly-burger-blend-4-lbs",
+      img: "assets/cardapio/burguers/goldbelly-burger-blend-1-lb.13a21b66edf7173a59c75c3a6d2f981b.jpg",
+      name: "Flannery Beef",
+      dsc: "Blend exclusivo de carne para hambúrgueres, ideal para quem busca o sabor perfeito e textura suculenta.",
+      price: 79.99,
+      composicao: "Blend de carne de boi, sal, pimenta do reino, alho em pó.",
+      serve: 1,
+    },
+    {
+      id: "gotts-complete-cheeseburger-kit-for-8",
+      img: "assets/cardapio/burguers/gotts-complete-cheeseburger-kit-for-8.092aa049d00286fa1733d720decc782e.jpg",
+      name: "Gott's Roadside",
+      dsc: "Kit completo para cheeseburgers com carne de qualidade, queijo e temperos especiais.",
+      price: 99.99,
+      composicao:
+        "Carne de boi, queijo cheddar, picles, alface, ketchup, pão de hambúrguer.",
+      serve: 1,
+    },
+    {
+      id: "gramercy-tavern-burger-kielbasa-combo",
+      img: "assets/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-47.jpg",
+      name: "Gramercy Tavern",
+      dsc: "Combinação do famoso hambúrguer Gramercy Tavern com kielbasa, para um sabor ainda mais marcante.",
+      price: 99.99,
+      composicao:
+        "Carne de boi, queijo cheddar, kielbasa, picles, molho barbecue, pão brioche.",
+      serve: 1,
+    },
+  ],
+
+  sobremesas: [
+    {
+      id: "15259-german-chocolate-killer-brownie-tin-pack",
+      img: "assets/cardapio/sobremesas/german-chocolate-killer-brownie-tin-pack.5ebc34160f28767a9d94c4da2e04c4b9.jpg",
+      name: "Killer Brownie®",
+      dsc: "Delicioso brownie de chocolate alemão, uma explosão de sabor com camadas de chocolate e nozes crocantes.",
+      price: 9.99,
+      composicao: "Chocolate alemão, nozes, cacau, açúcar, manteiga, ovos.",
+      serve: 1,
+    },
+    {
+      id: "jacques-world-famous-chocolate-chip-cookies",
+      img: "assets/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-6-pack.2217a14c443602493bba88aa9335319a.jpg",
+      name: "Jacques Torres Chocolate",
+      dsc: "Biscoitos de chocolate irresistíveis, com pedaços generosos de chocolate amargo em cada mordida.",
+      price: 7.99,
+      composicao:
+        "Farinha de trigo, chocolate amargo, manteiga, açúcar mascavo, ovos, baunilha.",
+      serve: 1,
+    },
+    {
+      id: "luigis-original-cannoli-pie",
+      img: "assets/cardapio/sobremesas/original-cannoli-pie.4cb5b9ba82f57b69b90765fd9f07aa1a.jpg",
+      name: "The Cannoli Pie Company",
+      dsc: "Torta de cannoli original, com uma crosta crocante e recheio cremoso de ricota com chocolate.",
+      price: 12.69,
+      composicao:
+        "Massa crocante, ricota, açúcar, baunilha, chocolate amargo, casca de laranja cristalizada.",
+      serve: 1,
+    },
+    {
+      id: "sea-salted-caramel-swirl-cheesecake",
+      img: "assets/cardapio/sobremesas/sea-salted-caramel-swirl-cheesecake.e2825335433fb7a272a5d77649a6849e.jpg",
+      name: "Cotton Blues Cheesecake Company",
+      dsc: "Cheesecake cremoso com caramelo salgado e um toque de sal marinho, equilibrando o doce e o salgado.",
+      price: 14.25,
+      composicao:
+        "Cream cheese, açúcar, ovos, creme de leite, caramelo salgado, biscoito de graham.",
+      serve: 1,
+    },
+    {
+      id: "brooklyn-blackout-cookie-brownie-combo-pack-2-tins",
+      img: "assets/cardapio/sobremesas/brooklyn-blackout-cookie-brownie-combo-pack-2-tins.d8805325baf6b23b4f01d119dc4531a7.jpg",
+      name: "Brooklyn Blackout Company",
+      dsc: "Combo de cookies e brownies, com o sabor intenso de chocolate e uma mistura de texturas deliciosas.",
+      price: 19.89,
+      composicao:
+        "Chocolate amargo, farinha de trigo, cacau, açúcar, ovos, manteiga, chocolate em pedaços.",
+      serve: 1,
+    },
+    {
+      id: "best-seller-cupcake-dozen",
+      img: "assets/cardapio/sobremesas/best-seller-cupcake-dozen.f93b21993f6a2da11c975d45b9b0d08f.jpg",
+      name: "Crave Cupcakes",
+      dsc: "O Best Seller Cupcake é fofinho, coberto com uma camada generosa de frosting e decoração colorida.",
+      price: 9.99,
+      composicao:
+        "Farinha de trigo, açúcar, ovos, leite, essência de baunilha, creme de manteiga.",
+      serve: 1,
+    },
+    {
+      id: "choose-your-own-ice-cream-donuts-6-pack",
+      img: "assets/cardapio/sobremesas/choose-your-own-ice-cream-donuts-6-pack.24d0b44765a7c54237fcd7ea9d9d8093.jpg",
+      name: "Elegant Desserts",
+      dsc: "Donuts com recheio de sorvete, um toque único que combina crocância e cremosidade.",
+      price: 16.75,
+      composicao:
+        "Farinha de trigo, sorvete, açúcar, leite, ovos, cobertura de chocolate.",
+      serve: 1,
+    },
+    {
+      id: "17481-jewish-dessert-3-pack",
+      img: "assets/cardapio/sobremesas/jewish-classics-dessert-pack.7d4b76630f2fe75dcb7bbcf2501b7390.jpg",
+      name: "Ess-a-Bagel",
+      dsc: "Pack de sobremesas clássicas judaicas, com uma seleção de doces tradicionais.",
+      price: 39.99,
+      composicao: "Farinha de trigo, nozes, mel, frutas secas, açúcar.",
+      serve: 3,
+    },
+    {
+      id: "dessert-bar-care-package",
+      img: "assets/cardapio/sobremesas/dessert-bar-care-package.324aa28fe98c9dc67b75aac43376902e.jpg",
+      name: "Bread and Roses Bakery",
+      dsc: "Pacote de barras de sobremesa, com camadas de biscoito e recheio doce e macio.",
+      price: 44.98,
+      composicao:
+        "Farinha de trigo, chocolate, açúcar, manteiga, leite condensado.",
+      serve: 4,
+    },
+    {
+      id: "donut-cookies-12-pack",
+      img: "assets/cardapio/sobremesas/donut-cookies-12-pack.46f42c61c4a79fd2051a99b2f23e890e.jpg",
+      name: "Stan's Donuts",
+      dsc: "Cookies em formato de donuts, com recheio de creme doce e cobertura crocante.",
+      price: 39.99,
+      composicao:
+        "Farinha de trigo, açúcar, ovos, creme de confeiteiro, chocolate.",
+      serve: 4,
+    },
+    {
+      id: "gulab-jamun-ice-cream-cakes-2-pack",
+      img: "assets/cardapio/sobremesas/gulab-jamun-ice-cream-cakes-2-pack.c45b4d0750ad22d741f84dc1f26d20e7.jpg",
+      name: "Malai Ice Cream",
+      dsc: "Bolos de sorvete Gulab Jamun, inspirados em um doce indiano clássico, com uma textura rica e sabor exótico.",
+      price: 79.99,
+      composicao:
+        "Sorvete de gulab jamun, açúcar, leite, pistache, cardamomo, farinha de trigo.",
+      serve: 8,
+    },
+    {
+      id: "jacques-world-famous-chocolate-chip-cookies-12-pack",
+      img: "assets/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-12-pack.3b373bdd67cd25084182c21499f675d1.jpg",
+      name: "Jacques Torres Chocolate",
+      dsc: "Os famosos biscoitos de chocolate de Jacques, com um toque extra de chocolate crocante em cada mordida.",
+      price: 12.87,
+      composicao:
+        "Farinha de trigo, chocolate amargo, manteiga, açúcar mascavo, ovos, baunilha.",
+      serve: 1,
+    },
+  ],
+
+  bebidas: [
+    {
+      id: "hong-kong-boba-tea-kit-for-6",
+      img: "assets/cardapio/bebidas/hong-kong-boba-tea-kit-for-6.63841de36d8e5edfafa13023fc303285.jpg",
+      name: "New Territories",
+      dsc: "Kit para preparar chá de bolinhas (Boba) estilo Hong Kong, ideal para 6 pessoas.",
+      price: 18.78,
+      composicao:
+        "Chá preto, pérolas de tapioca, leite condensado, açúcar, essência de frutas.",
+      serve: 1,
+    },
+    {
+      id: "guys-caliente-margaritas-for-12",
+      img: "assets/cardapio/bebidas/guys-caliente-margaritas-for-12.ca8c6bc06b8f1039549385ffcebc749d.jpg",
+      name: "Guy Fieri",
+      dsc: "Kit para preparar margaritas picantes para 12 pessoas, com um sabor único e refrescante.",
+      price: 16.99,
+      composicao: "Tequila, mix de margarita, suco de limão, pimenta, açúcar.",
+      serve: 2,
+    },
+    {
+      id: "woodford-reserve-mint-julep-syrup",
+      img: "assets/cardapio/bebidas/woodford-reserve-mint-julep-syrup.ef523ac7cbae5f4aba6b058207f490d2.jpg",
+      name: "Woodford Reserve",
+      dsc: "Xarope para preparar Mint Julep, o clássico coquetel com hortelã e bourbon.",
+      price: 12.99,
+      composicao: "Hortelã, açúcar, água, bourbon.",
+      serve: 1,
+    },
+    {
+      id: "new-orleans-hurricane-mix",
+      img: "assets/cardapio/bebidas/new-orleans-hurricane-mix.4613584fc65cb0787024dd24d2a8f4b3.jpg",
+      name: "Franco's Hurricane Mix",
+      dsc: "Mistura para preparar o famoso coquetel Hurricane de Nova Orleans, perfeito para festas.",
+      price: 15.99,
+      composicao: "Suco de maracujá, rum, suco de laranja, açúcar.",
+      serve: 1,
+    },
+    {
+      id: "margarita-mix",
+      img: "assets/cardapio/bebidas/margarita-mix.bd48a000d589d3147b14790af3c33fcd.jpg",
+      name: "Johnny Sanchez",
+      dsc: "Mix de margarita para preparar rapidamente o coquetel clássico com um sabor autêntico.",
+      price: 7.99,
+      composicao: "Suco de limão, tequila, açúcar, sal para a borda.",
+      serve: 1,
+    },
+    {
+      id: "woodford-reserve-mint-julep-syrup-2-pack",
+      img: "assets/cardapio/bebidas/woodford-reserve-mint-julep-syrup-2-pack.0ac76063f151988113cbaabd0eaa829f.jpg",
+      name: "Woodford Reserve",
+      dsc: "Pack duplo de xarope para Mint Julep, ideal para preparar vários coquetéis.",
+      price: 11.99,
+      composicao: "Hortelã, açúcar, água, bourbon.",
+      serve: 1,
+    },
+    {
+      id: "unicorn-parade-milkshake-kit-for-8",
+      img: "assets/cardapio/bebidas/unicorn-parade-milkshake-kit-for-2.9052d04c1cf25b29442048bd3e535f21.jpg",
+      name: "New Territories",
+      dsc: "Kit para preparar milkshakes temáticos de unicórnio para 8 pessoas, com cores vibrantes.",
+      price: 19.49,
+      composicao:
+        "Sorvete de baunilha, leite, corantes alimentícios, confeitos.",
+      serve: 1,
+    },
+    {
+      id: "chickpea-chiller-kit-for-6",
+      img: "assets/cardapio/bebidas/chickpea-chiller-kit-for-6.4310765c71ba524b5462ea9330d32446.jpg",
+      name: "The Hummus & Pita Co.",
+      dsc: "Kit para preparar uma bebida refrescante à base de grão-de-bico para 6 pessoas.",
+      price: 11.99,
+      composicao: "Grão-de-bico, limão, hortelã, açúcar, água.",
+      serve: 1,
+    },
+    {
+      id: "15194-old-honey-barn-mint-julep-mixer-200ml",
+      img: "assets/cardapio/bebidas/old-honey-barn-mint-julep-mixer-200ml.e0b131d6d9b69963706b43fd4334ab74.jpg",
+      name: "Old Honey Barn Mint Julep",
+      dsc: "Mixer para preparar Mint Julep, com um toque de mel e hortelã.",
+      price: 16.69,
+      composicao: "Hortelã, mel, açúcar, água.",
+      serve: 1,
+    },
+    {
+      id: "kentucky-derby-mint-julep-gift-set",
+      img: "assets/cardapio/bebidas/kentucky-derby-mint-julep-gift-set.79720eda4e9c8e3fcf9ecb5c79827f2c.jpg",
+      name: "Woodford Reserve",
+      dsc: "Kit de presente Mint Julep inspirado no Derby de Kentucky, completo com o xarope e copos especiais.",
+      price: 29.99,
+      composicao: "Hortelã, bourbon, açúcar, água, copos especiais.",
+      serve: 2,
+    },
+    {
+      id: "002-charleston-bloody-mary-mix-weekender-bold-and-spicy",
+      img: "assets/cardapio/bebidas/weekender-charleston-bloody-mary-mix-bold-and-spicy.c372868c9937e407a299a22001e210e2.jpg",
+      name: "Charleston Beverage Company",
+      dsc: "Mix para preparar Bloody Marys com um toque apimentado e ousado.",
+      price: 39.99,
+      composicao: "Tomate, pimenta, limão, aipo, sal, especiarias.",
+      serve: 2,
+    },
+    {
+      id: "nola-cold-brew-concentrate-bag-in-box",
+      img: "assets/cardapio/bebidas/nola-cold-brew-concentrate-bag-in-box.3df6fde8bd83f29235565984ae8ed22b.jpg",
+      name: "Grady's Cold Brew",
+      dsc: "Concentrado de cold brew estilo NOLA em embalagem bag-in-box para preparar grandes quantidades.",
+      price: 58.79,
+      composicao: "Café, água, açúcar, essência de baunilha.",
+      serve: 4,
+    },
+  ],
+  pizzas: [
+    {
+      id: "2-lou-malnatis-deep-dish-pizzas",
+      img: "assets/cardapio/pizzas/2-lou-malnatis-deep-dish-pizzas.bf0fe065d251a9cca3925b269d443a27.jpg",
+      name: "Lou Malnati's Pizza",
+      dsc: "2 Lou Malnati's Deep Dish Pizzas - Pizza de massa grossa com molho de tomate e queijo derretido.",
+      price: 67.89,
+      composicao:
+        "Massa grossa, molho de tomate, queijo mozzarella, carne, cogumelos.",
+      serve: 5,
+    },
+    {
+      id: "23699-choose-your-own-thin-crust-pizza-4-pack",
+      img: "assets/cardapio/pizzas/choose-your-own-thin-crust-pizza-4-pack.b928a2008eab50c65dc87e59b5952190.jpg",
+      name: "Bartolini's",
+      dsc: "Escolha sua própria pizza de massa fina - 4 unidades.",
+      price: 89.98,
+      composicao:
+        "Massa fina, molho de tomate, queijo mozzarella, ingredientes variados.",
+      serve: 4,
+    },
+    {
+      id: "choose-your-own-new-haven-style-pizza-6-pack",
+      img: "assets/cardapio/pizzas/choose-your-own-new-haven-style-pizza-6-pack.ab82828afc6172cdd4017556c15e36dd.jpg",
+      name: "Zuppardi's Apizza",
+      dsc: "Pizza no estilo New Haven - 6 unidades (escolha os seus sabores).",
+      price: 79.55,
+      composicao:
+        "Massa fina, molho de tomate, queijo mozzarella, ingredientes a escolher.",
+      serve: 6,
+    },
+    {
+      id: "6-lou-malnatis-deep-dish-pizzas",
+      img: "assets/cardapio/pizzas/6-lou-malnatis-deep-dish-pizzas.f59993181da5d295668c8a6fb856055e.jpg",
+      name: "Lou Malnati's Pizza",
+      dsc: "6 Lou Malnati's Deep Dish Pizzas - Uma pizza com crosta espessa e ingredientes frescos.",
+      price: 67.99,
+      composicao:
+        "Massa grossa, molho de tomate, queijo mozzarella, carne, cogumelos.",
+      serve: 6,
+    },
+    {
+      id: "wood-fired-pizzas-best-seller-4-pack",
+      img: "assets/cardapio/pizzas/wood-fired-pizzas-best-seller-4-pack.1653bb05922ba153ac178f8365d27f6d.jpg",
+      name: "Combo Bianco",
+      dsc: "4 pizzas feitas no forno a lenha, com sabores variados e crosta crocante.",
+      price: 169.85,
+      composicao:
+        "Massa crocante, molho de tomate, queijo mozzarella, ingredientes a escolher.",
+      serve: 12,
+    },
+    {
+      id: "236991-choose-your-own-deep-dish-pizza-3-pack",
+      img: "assets/cardapio/pizzas/choose-your-own-deep-dish-pizza-3-pack.4111791511244a4946bb5c9ad2c17da9.jpg",
+      name: "Bartolini's",
+      dsc: "Escolha suas pizzas de massa grossa - 3 unidades.",
+      price: 99.89,
+      composicao:
+        "Massa grossa, molho de tomate, queijo mozzarella, carne, cogumelos.",
+      serve: 3,
+    },
+    {
+      id: "choose-your-own-detroit-style-pizza-3-pack",
+      img: "assets/cardapio/pizzas/detroit-style-pizza-choose-your-own-3-pack.6b6f4909ffd4066d5471e70eac5c3d89.jpg",
+      name: "Emmy Squared",
+      dsc: "Pizza estilo Detroit - 3 unidades com borda crocante e molho generoso.",
+      price: 68.99,
+      composicao:
+        "Massa espessa, molho de tomate, queijo cheddar, queijo mozzarella.",
+      serve: 3,
+    },
+    {
+      id: "brooklyn-pizza-choose-your-own-5-pack",
+      img: "assets/cardapio/pizzas/brooklyn-pizza-choose-your-own-5-pack.edc4f476a75207d0af840ce6f225f2b3.jpg",
+      name: "Combo Paesan's",
+      dsc: "Escolha suas pizzas de estilo Brooklyn - 5 unidades.",
+      price: 169.87,
+      composicao:
+        "Massa fina, molho de tomate, queijo mozzarella, ingredientes variados.",
+      serve: 5,
+    },
+    {
+      id: "choose-your-own-chicago-deep-dish-pizza-4-pack",
+      img: "assets/cardapio/pizzas/chicago-deep-dish-pizza-4-pack.49927daafa8c147fe9bb2a113e56668e.jpg",
+      name: "Pi Pizza",
+      dsc: "Pizza Chicago Deep Dish - 4 unidades com recheio abundante e molho especial.",
+      price: 59.99,
+      composicao:
+        "Massa grossa, molho de tomate, queijo mozzarella, carne, cogumelos.",
+      serve: 4,
+    },
+    {
+      id: "4-lou-malnatis-deep-dish-pizzas",
+      img: "assets/cardapio/pizzas/4-lou-malnatis-deep-dish-pizzas.8c79eb7506b5752ab3387d8174246b17.jpg",
+      name: "Lou Malnati's Pizza",
+      dsc: "4 Lou Malnati's Deep Dish Pizzas - Uma pizza com crosta espessa e ingredientes frescos.",
+      price: 96.99,
+      composicao:
+        "Massa grossa, molho de tomate, queijo mozzarella, carne, cogumelos.",
+      serve: 4,
+    },
+    {
+      id: "tonys-custom-pizza-3-pack",
+      img: "assets/cardapio/pizzas/choose-your-own-pizza-3-pack.fcf7a43e38593007ef2857fe16d6dd26.jpg",
+      name: "Tony's Napoletana",
+      dsc: "Escolha suas pizzas personalizadas - 3 unidades.",
+      price: 87.75,
+      composicao:
+        "Massa fina, molho de tomate, queijo mozzarella, ingredientes variados.",
+      serve: 3,
+    },
+    {
+      id: "plain-thin-crust-pizza-4-pack",
+      img: "assets/cardapio/pizzas/plain-thin-crust-pizza-4-pack.5540e9d166db2f0853643c6517e4a225.jpg",
+      name: "The Columbia Inn",
+      dsc: "Pizza de massa fina simples - 4 unidades.",
+      price: 79.89,
+      composicao: "Massa fina, molho de tomate, queijo mozzarella.",
+      serve: 4,
+    },
+  ],
+  steaks: [
+    {
+      id: "california-reserve-filet-mignon-steaks-gift-box",
+      img: "assets/cardapio/steaks/california-reserve-filet-mignon-steaks-gift-box.bf226e317aad85f47897ae7e325f790d.jpg",
+      name: "Flannery Beef",
+      dsc: "California Reserve Filet Mignon Steaks Gift Box - Caixa de 4 steaks de filé mignon da Califórnia.",
+      price: 57.59,
+      composicao: "Filé mignon, tempero simples, embalada para presente.",
+      serve: 4,
+    },
+    {
+      id: "steaks-and-cakes-date-night-dinner-for-2",
+      img: "assets/cardapio/steaks/valentines-steaks-and-cakes-dinner-for-2.0c63dab635eed46209455dc33cd25ea8.jpg",
+      name: "Combo Chesapeake",
+      dsc: "Jantar para 2 com steaks e bolos - Acompanhado de deliciosos bolos e carnes.",
+      price: 189.99,
+      composicao:
+        "Steaks de alta qualidade, bolos artesanais, temperos especiais.",
+      serve: 12,
+    },
+    {
+      id: "Prime-holiday-steak-sampler-for-10-12",
+      img: "assets/cardapio/steaks/holiday-sampler-9-pack.2de75ca80282ffe9d064eb757ff7a5a1.jpg",
+      name: "Saltbrick Prime",
+      dsc: "Chef Matt's Steak Sampler for 10-12 - Kit de cortes premium para 10-12 pessoas.",
+      price: 179.87,
+      composicao: "Cortes de ribeye, filé mignon, e outros premium.",
+      serve: 12,
+    },
+    {
+      id: "bone-in-rib-steak",
+      img: "assets/cardapio/steaks/bone-in-rib-steak.b13d9d4233035767605f0de9acdce1ab.jpg",
+      name: "Old Steakhouse",
+      dsc: "Bone-in Rib Steak - Ribeye com osso, suculento e cheio de sabor.",
+      price: 89.19,
+      composicao: "Ribeye com osso, tempero simples.",
+      serve: 8,
+    },
+    {
+      id: "american-wagyu-gold-grade-top-sirloins",
+      img: "assets/cardapio/steaks/american-wagyu-gold-grade-sirloins.040dbeb8f8e615b91fa7e513e3dc089c.jpg",
+      name: "Snake River Farms",
+      dsc: "American Wagyu Gold Grade Top Sirloins - Cortes de sirloin premium Wagyu.",
+      price: 97.29,
+      composicao: "Carne Wagyu Gold Grade, corte top sirloin.",
+      serve: 5,
+    },
+    {
+      id: "2-peter-luger-steak-pack-b",
+      img: "assets/cardapio/steaks/peter-luger-steak-pack-b.9feb0300e6be2dfecfa314f2006a2183.jpg",
+      name: "Peter Steak House",
+      dsc: "Peter Luger Porterhouse Steaks - Cortes de Porterhouse exclusivos.",
+      price: 47.19,
+      composicao: "Porterhouse, tempero simples.",
+      serve: 4,
+    },
+    {
+      id: "ribeye-prime-steak-gift-box",
+      img: "assets/cardapio/steaks/ribeye-prime-steak-gift-box.e74cb016baabbb2df73861de8150f29c.jpg",
+      name: "Churchill's Steak",
+      dsc: "Ribeye Prime Steak Gift Box - Caixa com cortes premium de ribeye.",
+      price: 229.99,
+      composicao: "Cortes de ribeye prime, embalado como presente.",
+      serve: 1,
+    },
+    {
+      id: "dry-aged-usda-prime-black-angus-porterhouse-steak-2-pack",
+      img: "assets/cardapio/steaks/usda-prime-black-angus-filet-mignon-barrel-cut.6ee213799e7d1848763d12edca18e3b1.jpg",
+      name: "Pat LaFrieda Meats",
+      dsc: "Dry-Aged USDA Prime Black Angus Porterhouse Steak - 2 Pack.",
+      price: 96.87,
+      composicao: "Porterhouse de Black Angus, carne maturada a seco.",
+      serve: 4,
+    },
+    {
+      id: "california-reserve-ribeye-steak",
+      img: "assets/cardapio/steaks/california-reserve-ribeye-steak-12-oz.d367c5ae72dd9f89e170662104bef4fc.jpg",
+      name: "Flannery Beef",
+      dsc: "California Reserve Ribeye Steak - 12 oz - Corte premium de ribeye.",
+      price: 32.79,
+      composicao: "Ribeye, tempero simples.",
+      serve: 1,
+    },
+    {
+      id: "dry-aged-boneless-ribeye-steak-dinner-kit-for-4",
+      img: "assets/cardapio/steaks/dry-aged-boneless-ribeye-steak-dinner-for-4.81c3bdc05fe6bdb2c2214709863120e0.jpg",
+      name: "Chef Mallmann",
+      dsc: "Dry-Aged Boneless Ribeye Steak Dinner Kit for 4 - Kit para 4 pessoas com ribeye sem osso.",
+      price: 119.99,
+      composicao: "Ribeye sem osso, temperos especiais, acompanhamento.",
+      serve: 4,
+    },
+    {
+      id: "california-reserve-filet-mignon-steak",
+      img: "assets/cardapio/steaks/california-reserve-filet-mignon-steak.ff15071964ec8141d30c2ba05fb117e0.jpg",
+      name: "Flannery Beef",
+      dsc: "California Reserve Filet Mignon Steak - Filé mignon premium da Califórnia.",
+      price: 72.99,
+      composicao: "Filé mignon, tempero simples.",
+      serve: 1,
+    },
+    {
+      id: "mesquite-smoked-peppered-beef-tenderloin",
+      img: "assets/cardapio/steaks/mesquite-smoked-peppered-beef-tenderloin.5c314418a1f75c7057eed686e2fad46f.jpg",
+      name: "Perini Steakhouse",
+      dsc: "Mesquite Smoked Peppered Beef Tenderloin - Filé mignon defumado com pimenta.",
+      price: 165.99,
+      composicao: "Filé mignon, pimenta, defumado com mesquite.",
+      serve: 8,
+    },
+  ],
+};
+export default MENU;

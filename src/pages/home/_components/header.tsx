@@ -11,7 +11,7 @@ const Header = () => {
 
   const sections = [
     {
-      to: "servicos",
+      to: "Serviços",
       label: "Serviços",
     },
     {

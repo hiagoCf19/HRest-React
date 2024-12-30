@@ -1,15 +1,18 @@
 import { Element } from "react-scroll";
 
-const ServiceComponent = () => {
+const Services = () => {
   return (
-    <Element name="Serviços" className="p-8 sm:p-0">
+    <Element
+      name="Serviços"
+      className="h-[80vh] bg-background -mt-10 rounded-t-3xl justify-center flex items-center w-full flex-col"
+    >
       {/*TITULO DA SECTION */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-10 ">
         <span>
-          <b className="flex justify-center text-colorPrimary  text-base uppercase tracking-[5px]">
+          <b className="flex justify-center text-primary  text-base uppercase tracking-[5px] ">
             Serviços
           </b>
-          <h1 className=" text-color21 sm:text-[40px] text-[30px] mb-8 mt-1 flex text-center">
+          <h1 className=" sm:text-[40px] text-[30px] mb-8 mt-1 flex text-center text-secondary/80">
             <b> Como são nossos serviços?</b>
           </h1>
         </span>
@@ -23,7 +26,7 @@ const ServiceComponent = () => {
             </div>
             <div>
               <p>
-                <b className="flex justify-center pb-[22px] text-color21 medium">
+                <b className="flex justify-center pb-[22px] text-primary medium">
                   Fácil de pedir
                 </b>
               </p>
@@ -39,7 +42,7 @@ const ServiceComponent = () => {
               </div>
               <div>
                 <p>
-                  <b className="flex justify-center pb-[22px] text-color21 medium">
+                  <b className="flex justify-center pb-[22px] text-primary medium">
                     Entrega rápida
                   </b>
                 </p>
@@ -60,7 +63,7 @@ const ServiceComponent = () => {
               </div>
               <div>
                 <p>
-                  <b className="flex justify-center pb-[22px] text-color21 medium">
+                  <b className="flex justify-center pb-[22px] text-primary medium">
                     Melhor qualidade
                   </b>
                 </p>
@@ -76,4 +79,4 @@ const ServiceComponent = () => {
     </Element>
   );
 };
-export default ServiceComponent;
+export default Services;
