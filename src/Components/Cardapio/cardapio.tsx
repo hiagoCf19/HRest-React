@@ -1,13 +1,12 @@
 /* eslint-disable react/jsx-key */
 
 import MENU from "../../../dados";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { GiCakeSlice, GiFullPizza, GiSteak } from "react-icons/gi";
 import Foods from "./foods";
 import { PiHamburgerFill } from "react-icons/pi";
 import { FaPizzaSlice } from "react-icons/fa6";
 import { GiBarbecue } from "react-icons/gi";
-
 import {
   FaDrumstickBite,
   FaBacon,
@@ -17,21 +16,13 @@ import {
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 ("feather-icons-react/build/IconComponents");
-import {
-  BiChevronsRight,
-  BiChevronsLeft,
-  BiSolidPlaneTakeOff,
-  BiSolidDrink,
-} from "react-icons/bi";
+import { BiSolidDrink } from "react-icons/bi";
 import { useCart } from "@/hooks/useCart";
 import Title from "@/components/title";
-import MenuCard from "@/components/cardapio/card";
-import { Pizza, PizzaIcon } from "lucide-react";
 
 const CardapioComponent = () => {
   const { carrinho, setCarrinho } = useCart();
   const [tirar, setTirar] = useState<string | null>(null);
-  const [MouseInside, setMouseInside] = useState(null);
   const [botaoAtivo, setBotaoAtivo] = useState(0);
 
   const titulosSpn = [
@@ -43,12 +34,12 @@ const CardapioComponent = () => {
     "Sobremesas",
   ];
   const icons = [
-    <PiHamburgerFill size={20} />,
-    <FaPizzaSlice />,
-    <FaDrumstickBite />,
-    <FaBacon />,
-    <FaGlassMartiniAlt />,
-    <FaIceCream size={20} />,
+    <PiHamburgerFill className="text-primary/80" size={20} />,
+    <FaPizzaSlice className="text-primary/80" />,
+    <FaDrumstickBite className="text-primary/80" />,
+    <FaBacon className="text-primary/80" />,
+    <FaGlassMartiniAlt className="text-primary/80" />,
+    <FaIceCream size={20} className="text-primary/80" />,
   ];
 
   const scrollContainerRef = useRef(null);
@@ -58,27 +49,7 @@ const CardapioComponent = () => {
   const steaks = MENU.steaks;
   const bebidas = MENU.bebidas;
   const sobremesa = MENU.sobremesas;
-  const [countBurguer, setCountBurguer] = useState(
-    Array(burgers.length).fill(0)
-  );
-  const [countPizzas, setCountPizzas] = useState(Array(pizzas.length).fill(0));
-  const [countChurrasco, setCountChurrasco] = useState(
-    Array(churrasco.length).fill(0)
-  );
-  const [countSteaks, setCountSteaks] = useState(Array(steaks.length).fill(0));
-  const [countBebidas, setCountbebidas] = useState(
-    Array(bebidas.length).fill(0)
-  );
-  const [countSobremesa, setCountSobremesa] = useState(
-    Array(sobremesa.length).fill(0)
-  );
 
-  const inside = (i: any) => {
-    setMouseInside(i);
-  };
-  const outside = () => {
-    setMouseInside(null);
-  };
   const adicionarItemAoCarrinho = (
     quantidade: number,
     nome: string,
@@ -119,29 +90,7 @@ const CardapioComponent = () => {
       setCarrinho([...carrinho, itemCarrinho]);
     }
   };
-  const adicionar = (
-    itemarray: number[],
-    i: number,
-    setItem: Dispatch<SetStateAction<any[]>>
-  ) => {
-    const novosCounts = [...itemarray];
-    novosCounts[i] = novosCounts[i] + 1;
-    setItem(novosCounts);
-  };
-  const subtrair = (
-    itemarray: number[],
-    i: number,
-    setItem: Dispatch<SetStateAction<any[]>>
-  ) => {
-    if (itemarray[i] > 0) {
-      const novosCounts = [...itemarray];
-      novosCounts[i] = novosCounts[i] - 1;
-      setItem(novosCounts);
-    }
-  };
-  const RenderizaQuantidade = (itemarray: number[], i: number) => {
-    return itemarray[i];
-  };
+
   const [adicionou, setAdicionou] = useState(false);
   const MensagemDeAdicao = () => {
     setAdicionou(true);
@@ -167,20 +116,6 @@ const CardapioComponent = () => {
           id="seletor-de-itens"
           className=" flex justify-between items-center gap-2 sm:justify-center "
         >
-          {/* <button
-            className="p-1 rounded-full bg-colorSecondary outline-none sm:hidden"
-            onClick={() =>
-              scrollContainerRef.current
-                ? `${scrollContainerRef.current.scrollBy({
-                    left: -120,
-                    behavior: "smooth",
-                  })}`
-                : null
-            }
-          >
-            <BiChevronsLeft color="FFF" size={20} />
-          </button> */}
-
           <div
             className="flex min-wmax sm:w-auto overflow-x-scroll sm:overflow-hidden gap-4 p-2 "
             ref={scrollContainerRef}
@@ -188,7 +123,7 @@ const CardapioComponent = () => {
             {titulosSpn.map((spn, i) => (
               <button
                 key={i}
-                className={`gap-1 flex items-center rounded-xl  p-[10px] bg-[#F5F5F5] shadow-lg ${
+                className={`gap-1 flex items-center rounded-xl  p-[10px] bg-secondary/90 shadow-lg ${
                   botaoAtivo === i
                     ? "bg-colorSecondary"
                     : "hover:bg-colorSecondary"
@@ -196,23 +131,10 @@ const CardapioComponent = () => {
                 onClick={() => setBotaoAtivo(i)}
               >
                 {icons[i]}
-                <span className="medium text-colorText">{spn}</span>
+                <span className="medium text-primary/80">{spn}</span>
               </button>
             ))}
           </div>
-          {/* <button
-            className="p-1 rounded-full bg-primary outline-none sm:hidden"
-            onClick={() =>
-              scrollContainerRef.current
-                ? `${scrollContainerRef.current.scrollBy({
-                    left: 120,
-                    behavior: "smooth",
-                  })}`
-                : null
-            }
-          >
-            <BiChevronsRight color="FFF" size={20} />a
-          </button> */}
         </div>
         {/* ITENS DO CARDAPIO */}
         <div
@@ -221,103 +143,55 @@ const CardapioComponent = () => {
           {botaoAtivo === 0 ? (
             <Foods
               Food={burgers}
-              countFood={countBurguer}
-              setCountFood={setCountBurguer}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<FaHamburger size={40} />}
+              icon={<FaHamburger size={40} className="text-primary/80" />}
             />
           ) : null}
           {botaoAtivo === 1 ? (
             <Foods
               Food={pizzas}
-              countFood={countPizzas}
-              setCountFood={setCountPizzas}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<GiFullPizza size={40} />}
+              icon={<GiFullPizza size={40} className="text-primary/80" />}
             />
           ) : null}
           {botaoAtivo === 2 ? (
             <Foods
               Food={churrasco}
-              countFood={countChurrasco}
-              setCountFood={setCountChurrasco}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<GiBarbecue size={40} />}
+              icon={<GiBarbecue size={40} className="text-primary/80" />}
             />
           ) : null}
           {botaoAtivo === 3 ? (
             <Foods
               Food={steaks}
-              countFood={countSteaks}
-              setCountFood={setCountSteaks}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<GiSteak size={40} />}
+              icon={<GiSteak size={40} className="text-primary/80" />}
             />
           ) : null}
           {botaoAtivo === 4 ? (
             <Foods
               Food={bebidas}
-              countFood={countBebidas}
-              setCountFood={setCountbebidas}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<BiSolidDrink size={40} />}
+              icon={<BiSolidDrink size={40} className="text-primary/80" />}
             />
           ) : null}
           {botaoAtivo === 5 ? (
             <Foods
               Food={sobremesa}
-              countFood={countSobremesa}
-              setCountFood={setCountSobremesa}
-              RenderizaQuantidade={RenderizaQuantidade}
-              adicionar={adicionar}
-              subtrair={subtrair}
               adicionarItemAoCarrinho={adicionarItemAoCarrinho}
               MensagemDeAdicao={MensagemDeAdicao}
-              inside={inside}
-              outside={outside}
-              MouseInside={MouseInside}
               tirar={tirar}
-              icon={<GiCakeSlice size={40} />}
+              icon={<GiCakeSlice size={40} className="text-primary/80" />}
             />
           ) : null}
         </div>
@@ -336,11 +210,11 @@ const CardapioComponent = () => {
         </div>
       </section>
 
-      {adicionou ? (
+      {adicionou && (
         <div className="fixed sm:ml-[85%] ml-[25%] mt-[100px] bg-colorPrimary p-4 rounded-lg fade-out-up w-[200px] flex items-center gap-3 medium">
           Item Adicionado <MdVerified />
         </div>
-      ) : null}
+      )}
     </>
   );
 };

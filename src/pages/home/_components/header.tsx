@@ -52,8 +52,8 @@ const Header = () => {
             ) : (
               <span className="relative w-max">
                 <div className=" p-1 rounded-full flex sm:block">
-                  <p className=" absolute left-5 bottom-4 text-colorWhite text-[14px] justify-center p-2 bg-[#FF6969] rounded-[200px] w-5 h-5 flex items-center">
-                    {carrinho?.length}aa
+                  <p className=" absolute left-5 bottom-4 text-colorWhite text-[14px] justify-center p-2 bg-secondary rounded-[200px] w-5 h-5 flex items-center">
+                    {carrinho?.length}
                   </p>
                   <BsFillBagPlusFill color={"#FFF"} size={25} />
                 </div>
@@ -65,13 +65,13 @@ const Header = () => {
 
       {carrinho?.length <= 0 ? null : (
         <Link to={"/meu-carrinho"}>
-          <div className="fixed right-8 sm:right-16 bottom-16 bg-colorSecondary rounded-full h-12 w-12 p-6 justify-center flex items-center hover:bg-colorDestaque animate__animated animate__backInRight z-10">
+          <div className="fixed right-8 sm:right-16 bottom-16 bg-primary/80 rounded-full h-12 w-12 p-6 justify-center flex items-center hover:bg-colorDestaque animate__animated animate__backInRight z-10">
             <div className="relative">
-              <div className="absolute bottom-3 left-4 text-[#FFF] p-1 rounded-full bg-[#FF6969]  w-6 h-6 flex justify-center items-center ">
+              <div className="bg-secondary absolute bottom-3 left-4 text-[#FFF] p-1 rounded-full bg-[#FF6969]  w-6 h-6 flex justify-center items-center text-xs ">
                 {carrinho?.length}
               </div>
               <div>
-                <BsFillBagPlusFill size={25} />
+                <BsFillBagPlusFill size={25} color="#FFF" />
               </div>
             </div>
           </div>

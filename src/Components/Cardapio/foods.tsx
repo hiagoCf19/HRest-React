@@ -12,21 +12,6 @@ import { LucideProps } from "lucide-react";
 interface FoodsProps {
   Food: MenuItem[];
   icon: ReactNode;
-  countFood: number[];
-  setCountFood: React.Dispatch<React.SetStateAction<any[]>>;
-  inside: (index: number) => void;
-  outside: () => void;
-  RenderizaQuantidade: (itemArray: number[], index: number) => number;
-  adicionar: (
-    itemarray: number[],
-    i: number,
-    setItem: Dispatch<SetStateAction<any[]>>
-  ) => void;
-  subtrair: (
-    itemarray: number[],
-    i: number,
-    setItem: Dispatch<SetStateAction<any[]>>
-  ) => void;
   adicionarItemAoCarrinho: (
     quantidade: number,
     nome: string,
@@ -34,22 +19,13 @@ interface FoodsProps {
     image: string
   ) => void;
   MensagemDeAdicao: () => void;
-  MouseInside: number | null;
   tirar: string | null;
 }
 const Foods = ({
   Food,
   icon,
-  countFood,
-  setCountFood,
-  inside,
-  outside,
-  RenderizaQuantidade,
-  adicionar,
-  subtrair,
   adicionarItemAoCarrinho,
   MensagemDeAdicao,
-  MouseInside,
   tirar,
 }: FoodsProps) => {
   return (
@@ -60,6 +36,14 @@ const Foods = ({
     >
       {Food.map((foodItem, i) => (
         <MenuCard
+          add={() => {
+            const quantidade = 1;
+            const nome = foodItem.name;
+            const precoUnitario = foodItem.price;
+            const image = foodItem.img;
+            adicionarItemAoCarrinho(quantidade, nome, precoUnitario, image);
+            MensagemDeAdicao();
+          }}
           icon={icon}
           description={foodItem.dsc}
           backgroundImage={foodItem.img}

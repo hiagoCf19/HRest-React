@@ -8,8 +8,9 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import "./card.css";
-import { ReactNode } from "react";
+import { MouseEventHandler, ReactNode } from "react";
 interface MenuCardProps {
+  add?: MouseEventHandler<HTMLButtonElement>;
   icon: ReactNode;
   backgroundImage: string;
   foodName: string;
@@ -26,6 +27,7 @@ const MenuCard = ({
   description,
   foodComposition,
   foodServe,
+  add,
 }: MenuCardProps) => {
   return (
     /* From Uiverse.io by ElSombrero2 */
@@ -56,7 +58,7 @@ const MenuCard = ({
               <small className="badge text-zinc-50 text-sm font-bold">
                 R$ {price}
               </small>
-              <Button size={"icon"} variant={"secondary"}>
+              <Button size={"icon"} variant={"secondary"} onClick={add}>
                 <ShoppingCart color="#FFF" />
               </Button>
             </div>
