@@ -1,14 +1,7 @@
-import {
-  Icon,
-  LucideProps,
-  Plus,
-  PlusIcon,
-  ShoppingBag,
-  ShoppingCart,
-} from "lucide-react";
-import { Button } from "../ui/button";
+import { ShoppingCart } from "lucide-react";
 import "./card.css";
 import { MouseEventHandler, ReactNode } from "react";
+import { Button } from "@/components/ui/button";
 interface MenuCardProps {
   add?: MouseEventHandler<HTMLButtonElement>;
   icon: ReactNode;

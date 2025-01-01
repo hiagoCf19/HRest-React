@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-key */
 
-import MENU from "../../../dados";
+import MENU from "../../../../dados";
 import { useRef, useState } from "react";
 import { GiCakeSlice, GiFullPizza, GiSteak } from "react-icons/gi";
-import Foods from "./foods";
+import Foods from "./cardapio/foods";
 import { PiHamburgerFill } from "react-icons/pi";
 import { FaPizzaSlice } from "react-icons/fa6";
 import { GiBarbecue } from "react-icons/gi";
@@ -19,6 +19,7 @@ import { MdVerified } from "react-icons/md";
 import { BiSolidDrink } from "react-icons/bi";
 import { useCart } from "@/hooks/useCart";
 import Title from "@/components/title";
+import { Button } from "@/components/ui/button";
 
 const CardapioComponent = () => {
   const { carrinho, setCarrinho } = useCart();
@@ -102,7 +103,7 @@ const CardapioComponent = () => {
 
   return (
     <>
-      <section id="Cardapio" className="p-8 sm:p-0">
+      <section id="Cardapio" className="p-8 sm:p-0 ">
         {/* DESCRIÇÃO DA SECTION */}
         <div
           id="titulo-da-section"
@@ -111,7 +112,6 @@ const CardapioComponent = () => {
           <Title descricao={"Cardápio"} title={"Escolha sua comida favorita"} />
         </div>
         {/*BARRA DE SELEÇÃO DE ITENS */}
-
         <div
           id="seletor-de-itens"
           className=" flex justify-between items-center gap-2 sm:justify-center "
@@ -131,14 +131,16 @@ const CardapioComponent = () => {
                 onClick={() => setBotaoAtivo(i)}
               >
                 {icons[i]}
-                <span className="medium text-primary/80">{spn}</span>
+                <span className="medium text-zinc-100">{spn}</span>
               </button>
             ))}
           </div>
         </div>
         {/* ITENS DO CARDAPIO */}
         <div
-          className={` sm:w-auto ${tirar === "removido" ? "sm:pb-20" : null}`}
+          className={` sm:w-auto  ${
+            tirar === "removido" ? "sm:pb-[16%]" : null
+          }`}
         >
           {botaoAtivo === 0 ? (
             <Foods
@@ -198,14 +200,15 @@ const CardapioComponent = () => {
         {/* BOTÃO VER MAIS */}
         <div className="hidden sm:block">
           <div className="flex justify-center p-6 ">
-            <button
-              className={`bg-[#f5f5f5] p-2 rounded-xl scale-110 hover:shadow-xl hover:bg-colorPrimary hover:text-colorText ${
+            <Button
+              variant={"link"}
+              className={` p-2 rounded-xl scale-110 hover:shadow-xl hover:bg-colorPrimary hover:text-colorText ${
                 tirar === null ? null : "hidden"
               } `}
               onClick={() => setTirar("removido")}
             >
               Ver Mais
-            </button>
+            </Button>
           </div>
         </div>
       </section>

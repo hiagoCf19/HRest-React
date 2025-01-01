@@ -8,7 +8,7 @@ const Title = ({ descricao, title }: titleProps) => {
       <b className="flex justify-center text-primary  text-base uppercase tracking-[5px]">
         {descricao}
       </b>
-      <h1 className="sm:text-[33px] text-[30px]">
+      <h1 className="sm:text-[33px] text-[30px] text-center uppercase">
         <b> {title}</b>
       </h1>
     </span>

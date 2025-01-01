@@ -1,7 +1,8 @@
+import Title from "@/components/title";
+import { Button } from "@/components/ui/button";
 import { Element } from "react-scroll";
-import Title from "./Title";
 
-const ReservasComponent = () => {
+const Reserva = () => {
   const mensagemDeReserva = () => {
     const numeroDoEstabelecimento = "31982033698";
     let mensagem = `Olá, gostaria de reservar uma mesa, quais os dias e horários disponíveis para a semana?`;
@@ -13,32 +14,31 @@ const ReservasComponent = () => {
 
   return (
     <>
-      <Element className="flex sm:justify-center p-8 sm:p-0" name="Reservas">
-        <div className=" flex bg-colorSecondary rounded-[40px] sm:w-[1100px] sm:h-[500px] sm:items-center">
-          <div className=" sm:flex-1 justify-center items-center">
+      <Element
+        className="h-[70vh] flex sm:justify-center p-8 sm:p-0"
+        name="Reservas"
+      >
+        <div className=" flex rounded-[40px] w-full  sm:items-center ">
+          <div className="ml-32 sm:flex-1 justify-center items-center">
             <div className="flex flex-col gap-5 p-10 items-center">
               <Title descricao={"Reserva"} title={"Quer fazer uma reserva ?"} />
-              <p className=" text-md text-color21">
+              <p className=" text-md text-secondary/80 w-[80%] text-center">
                 Mande uma mensagem clicando no botão abaixo. Reserve sua data e
                 horário para conhecer nosso estabelecimento de forma simples e
                 rápida.
               </p>
 
-              <button
-                onClick={mensagemDeReserva}
-                className="w-[180px] p-3 rounded-2xl bg-colorWhite medium text-colorDestaque hover:shadow-2xl hover:bg-colorWhite hover:text-colorPrimary justify-start"
-              >
-                Fazer reserva
-              </button>
+              <Button onClick={mensagemDeReserva}>Fazer reserva</Button>
             </div>
           </div>
           {/*   IMAGEM DA RESERVA */}
-          <div className="parts justify-center items-center hidden sm:block">
-            <img src="assets/icone-reserva.svg" width={450} className="z-[1]" />
-          </div>
+          <div
+            className=" flex-1 bg-cover bg-left  flex w-full h-full "
+            style={{ backgroundImage: "url('/assets/reserva.jpg')" }}
+          ></div>
         </div>
       </Element>
     </>
   );
 };
-export default ReservasComponent;
+export default Reserva;

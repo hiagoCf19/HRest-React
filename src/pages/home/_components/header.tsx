@@ -15,7 +15,7 @@ const Header = () => {
       label: "Serviços",
     },
     {
-      to: "cardapio",
+      to: "Cardapio",
       label: "Cardápio",
     },
     {
